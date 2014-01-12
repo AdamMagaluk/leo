@@ -1,0 +1,9 @@
+{{#each sketches}}
+.build/{{../board}}/{{path}}.cpp : {{path}}.{{ext}}
+  @mkdir -p .build/{{../board}}/{{dir}}
+  @echo {{path}}.{{ext}}
+  @{{leoPath}} preproc  -o $@ $^
+{{/each}}
+
+all :{{#each sketches}} .build/{{../board}}/{{path}}.cpp {{/each}}
+  @true

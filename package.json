@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin" : {
+    "leo" : "./bin/leo"
+  },
   "keywords": [
     "arduino",
     "avr",
@@ -16,5 +19,8 @@
     "uno"
   ],
   "author": "Adam Magaluk <AdamMagaluk@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "~2.1.0"
+  }
 }

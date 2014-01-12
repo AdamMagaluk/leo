@@ -4,7 +4,7 @@ Command build tool for [Arduino][arduino] development built using
 [Node.js][nodejs]. Allows installing library dependencies using the wonderful 
 package manager [Npm][npm].
 
-The idea and a lot of the hardware work is based off the [Ino][ino] project.
+The idea and a lot of the hard work is based off the [Ino][ino] project.
 
 ## License
 
