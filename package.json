@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin" : {
-    "leo" : "./bin/leo"
+  "bin": {
+    "leo": "./bin/leo"
   },
   "keywords": [
     "arduino",
@@ -21,6 +21,9 @@
   "author": "Adam Magaluk <AdamMagaluk@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "~2.1.0"
+    "commander": "~2.1.0",
+    "prompt": "~0.2.12",
+    "async": "~0.2.9",
+    "handlebars": "~1.3.0"
   }
 }
