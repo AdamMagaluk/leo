@@ -24,6 +24,7 @@
     "commander": "~2.1.0",
     "prompt": "~0.2.12",
     "async": "~0.2.9",
-    "handlebars": "~1.3.0"
+    "handlebars": "~1.3.0",
+    "colors": "^0.6.2"
   }
 }

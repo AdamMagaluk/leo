@@ -38,16 +38,6 @@ function toO(f){
 function toExt(f,ext){
   return path.basename(f,path.extname(f)) + ext;
 }
-function compileLib(next){
-  // this.deps => ['file_a.c','file_b.c']
-  // this.name = 'somelib.a'
-  // this.env = {gcc : '/usr/bin/gcc',cflags : '-Wall '}
-
-  var cmd = [this.env.gcc,this.env.cflags,'-o' ,this.name].concat(this.deps.map(toO).join(' ')).join(' ');
-  // cmd => /usr/bin/gcc -Wall -o somelib.a file_a.o file_b.o
-  //exec(cmd,next);
-  next();
-}
 
 function objectToEep(next){
   var self = this;
