@@ -28,5 +28,10 @@ env.ldflags = '-Os -Wl,--gc-sections -mmcu=atmega32u4';
 env.eepFlags = '-O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0';
 env.hexFlags = '-O ihex -R .eeprom';
 
-module.exports = env;
+
+function setup(board){
+  return env;
+}
+
+module.exports = setup;
 

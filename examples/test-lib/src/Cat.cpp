@@ -1,3 +1,10 @@
+
+#if (ARDUINO >= 100)
+  #include <Arduino.h> // capital A so it is error prone on case-sensitive filesystems
+#else
+  #include <WProgram.h>
+#endif
+
 #include "Cat.h"
 
 Cat::Cat(){
@@ -5,5 +12,5 @@ Cat::Cat(){
 }
 
 void Cat::meow(){
-  // meowx
+  digitalWrite(13, HIGH);
 }
