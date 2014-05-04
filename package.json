@@ -1,6 +1,6 @@
 {
   "name": "leo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Command line tool for building Arduino firmware using Node.js and Npm.",
   "main": "index.js",
   "scripts": {
@@ -28,5 +28,17 @@
     "colors": "^0.6.2",
     "traverse": "^0.6.6",
     "rmdir-recursive": "0.0.0"
-  }
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AdamMagaluk/leo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AdamMagaluk/leo/issues"
+  },
+  "homepage": "https://github.com/AdamMagaluk/leo"
 }
