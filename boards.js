@@ -35,23 +35,22 @@ yun.upload.use_1200bps_touch = true;
 yun.upload.wait_for_upload_port = true;
 
 yun.bootloader.tool = 'avrdude';
-yun.bootloader.low_fuses = 0xff;
-yun.bootloader.high_fuses = 0xd8;
-yun.bootloader.extended_fuses = 0xfb;
+yun.bootloader.low_fuses = '0xff';
+yun.bootloader.high_fuses = '0xd8';
+yun.bootloader.extended_fuses = '0xfb';
 yun.bootloader.file = 'caterina/Caterina-Yun.hex';
-yun.bootloader.unlock_bits = 0x3F;
-yun.bootloader.lock_bits = 0x2F;
+yun.bootloader.unlock_bits = '0x3F';
+yun.bootloader.lock_bits = '0x2F';
 
 yun.build.mcu = 'atmega32u4';
 yun.build.f_cpu = '16000000L';
-yun.build.vid = 0x2341;
-yun.build.pid = 0x8041;
+yun.build.vid = '0x2341';
+yun.build.pid = '0x8041';
 yun.build.usb_product = "Arduino Yun";
 yun.build.board = 'AVR_YUN'
 yun.build.core = 'arduino'
 yun.build.variant = 'yun'
-yun.build.extra_flags = usbflags;
-
+yun.build.use_usb_flags = true;
 
 //##############################################################
 
@@ -72,11 +71,11 @@ uno.upload.maximum_data_size = 2048;
 uno.upload.speed = 115200;
 
 uno.bootloader.tool = 'avrdude'
-uno.bootloader.low_fuses = 0xFF;
-uno.bootloader.high_fuses = 0xDE;
-uno.bootloader.extended_fuses = 0x05;
-uno.bootloader.unlock_bits = 0x3F;
-uno.bootloader.lock_bits = 0x0F;
+uno.bootloader.low_fuses = '0xFF';
+uno.bootloader.high_fuses = '0xDE';
+uno.bootloader.extended_fuses = '0x05';
+uno.bootloader.unlock_bits = '0x3F';
+uno.bootloader.lock_bits = '0x0F';
 uno.bootloader.file = 'optiboot/optiboot_atmega328.hex';
 
 uno.build.mcu = 'atmega328p';

@@ -1,7 +1,11 @@
-var buildEnv = require('../env')
-  , boards = require('../boards')
+var boards = require('../boards')
+  , runtime = require('../runtime')
+  , platform = require('../platform')
   , out  = require('../lib/output')
   , LeoBuild = require('../lib/build');
+
+
+
 
 var Program = null;
 
@@ -21,18 +25,20 @@ function run(env){
     out.error('Board not specified.');
     process.exit(1);
   }
-
-  if(boards[env.board] === undefined){
+  
+  var board = boards[env.board];
+  if(board === undefined){
     out.error('Board `'+env.board+'` not found. Use `leo boards` to list available boards.');
     process.exit(1);
   }
 
   // Setup build 
-  var env = buildEnv(env.board);
+  var env = platform(runtime,board.build,board);
 
   var b = new LeoBuild(env);
   b.build('.',function(err){
     console.log(err);
-  })
+  });
+
 }
 
