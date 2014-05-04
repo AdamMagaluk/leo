@@ -26,6 +26,7 @@
     "async": "~0.2.9",
     "handlebars": "^1.3.0",
     "colors": "^0.6.2",
-    "traverse": "^0.6.6"
+    "traverse": "^0.6.6",
+    "rmdir-recursive": "0.0.0"
   }
 }
