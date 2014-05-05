@@ -23,7 +23,6 @@ function platform(runtime,build){
   if(build.use_usb_flags){
     //-DUSB_VID=2341 -DUSB_PID=0x8041 -DUSB_MANUFACTURER=\'""\' -DUSB_PRODUCT=\'"Arduino Yun"\' 
     build.usb_flags = Handlebars.compile('-DUSB_VID={{build.vid}} -DUSB_PID={{build.pid}} -DUSB_MANUFACTURER=\'"{{build.usb_manufacturer}}"\' -DUSB_PRODUCT=\'"{{build.usb_product}}"\'')({build : build});
-    console.log(build.usb_flags);
     if(!build.extra_flags)
       build.extra_flags = build.usb_flags;
     else
