@@ -11,8 +11,11 @@ var Handlebars = require('handlebars');
 
 module.exports = platform;
 
-function platform(runtime,build){
+function platform(runtime, build, board){
   
+  runtime.platform = {};
+  runtime.platform.path = path.join(runtime.ide.path,'hardware/arduino/avr');
+
   build.arch = 'AVR';
   build.path = '.build';
 
@@ -105,33 +108,35 @@ function platform(runtime,build){
     this.update(Handlebars.compile(str));
   });
 
-  return {build : build, runtime : runtime, recipe : recipe, compiler : compiler, includes : includes };
+  var tools = {avrdude : {cmd : {},config : {},upload : {params : {}}, program : {params : {}},erase : {params : {}}, bootloader : {params : {}}   }};
+
+  // AVR Uploader/Programmers tools
+  // ------------------------------
+  compiler.avrdudeconfig = path.join(runtime.ide.path,'hardware/tools/avr/etc/avrdude.conf');
+  //tools.avrdude.cmd.path.linux = '{{{runtime.ide.path}}}/hardware/tools/avrdude';
+  //tools.avrdude.config.path.linux = '{{{runtime.ide.path}}}/hardware/tools/avrdude.conf';
+
+  tools.avrdude.upload.pattern = '"{{{compiler.path}}}/avrdude" "-C{{{compiler.avrdudeconfig}}}" -v -v -v -v -p{{{build.mcu}}} -c{{{board.upload.protocol}}} -P{{{serialPort}}} -b{{{board.upload.speed}}} -D "-Uflash:w:{{{build.path}}}/{{{build.project_name}}}.hex:i"';
+
+  tools.avrdude.program.pattern = '"{{{compiler.path}}}/avrdude" "-C{{{compiler.avrdudeconfig}}}" -v -v -v -v -p{{{build.mcu}}} -c{{{board.upload.protocol}}} {{{program.extra_params}}} "-Uflash:w:{{{build.path}}}/{{{build.project_name}}}.hex:i"';
+
+  tools.avrdude.erase.pattern = '"{{{compiler.path}}}/avrdude" "-C{{{compiler.avrdudeconfig}}}" -v -v -v -v -p{{{build.mcu}}} -c{{{board.upload.protocol}}} {{{program.extra_params}}} -e -Ulock:w:{{{board.bootloader.unlock_bits}}}:m -Uefuse:w:{{{bootloader.extended_fuses}}}:m -Uhfuse:w:{{{bootloader.high_fuses}}}:m -Ulfuse:w:{{{bootloader.low_fuses}}}:m';
+
+  tools.avrdude.bootloader.pattern = '"{{{compiler.path}}}/avrdude" "-C{{{compiler.avrdudeconfig}}}" -v -v -v -v -p{{{build.mcu}}} -c{{{board.upload.protocol}}} {{{program.extra_params}}} "-Uflash:w:{{{runtime.platform.path}}}/bootloaders/{{{board.bootloader.file}}}:i" -Ulock:w:{{{board.bootloader.lock_bits}}}:m';
+
+  traverse(tools).forEach(function (str) {
+    if(!this.isLeaf)
+      return;
+    
+    if(this.key !== 'pattern')
+      return;
+    
+    this.update(Handlebars.compile(str));
+  });
+
+  return {build : build, runtime : runtime, recipe : recipe, compiler : compiler, includes : includes, board : board, tools : tools  };
 }
 
 
 
 
-/*
-// AVR Uploader/Programmers tools
-// ------------------------------
-tools.avrdude.cmd.path = '{{{runtime.ide.path}}}/hardware/tools/avr/bin/avrdude';
-tools.avrdude.config.path = '{{{runtime.ide.path}}}/hardware/tools/avr/etc/avrdude.conf';
-tools.avrdude.cmd.path.linux = '{{{runtime.ide.path}}}/hardware/tools/avrdude';
-tools.avrdude.config.path.linux = '{{{runtime.ide.path}}}/hardware/tools/avrdude.conf';
-
-tools.avrdude.upload.params.verbose = '-v -v -v -v';
-tools.avrdude.upload.params.quiet = '-q -q';
-tools.avrdude.upload.pattern = '"{{{cmd.path}}}" "-C{{{config.path}}}" {{{upload.verbose}}} -p{{{build.mcu}}} -c{{{upload.protocol}}} -P{{{serial.port}}} -b{{{upload.speed}}} -D "-Uflash:w:{{{build.path}}}/{{{build.project_name}}}.hex:i"';
-
-tools.avrdude.program.params.verbose = '-v -v -v -v';
-tools.avrdude.program.params.quiet = '-q -q';
-tools.avrdude.program.pattern = '"{{{cmd.path}}}" "-C{{{config.path}}}" {{{program.verbose}}} -p{{{build.mcu}}} -c{{{protocol}}} {{{program.extra_params}}} "-Uflash:w:{{{build.path}}}/{{{build.project_name}}}.hex:i"';
-
-tools.avrdude.erase.params.verbose = '-v -v -v -v';
-tools.avrdude.erase.params.quiet = '-q -q';
-tools.avrdude.erase.pattern = '"{{{cmd.path}}}" "-C{{{config.path}}}" {{{erase.verbose}}} -p{{{build.mcu}}} -c{{{protocol}}} {{{program.extra_params}}} -e -Ulock:w:{{{bootloader.unlock_bits}}}:m -Uefuse:w:{{{bootloader.extended_fuses}}}:m -Uhfuse:w:{{{bootloader.high_fuses}}}:m -Ulfuse:w:{{{bootloader.low_fuses}}}:m';
-
-tools.avrdude.bootloader.params.verbose = '-v -v -v -v';
-tools.avrdude.bootloader.params.quiet = '-q -q';
-tools.avrdude.bootloader.pattern = '"{{{cmd.path}}}" "-C{{{config.path}}}" {{{bootloader.verbose}}} -p{{{build.mcu}}} -c{{{protocol}}} {{{program.extra_params}}} "-Uflash:w:{{{runtime.platform.path}}}/bootloaders/{{{bootloader.file}}}:i" -Ulock:w:{{{bootloader.lock_bits}}}:m';
-*/
