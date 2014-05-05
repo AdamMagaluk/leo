@@ -28,8 +28,8 @@
     "colors": "^0.6.2",
     "traverse": "^0.6.6",
     "rmdir-recursive": "0.0.0",
-    "ntr": "0.0.1",
-    "walkdir": "0.0.7"
+    "ntr": "~0.0.1",
+    "walkdir": "~0.0.7"
   },
   "directories": {
     "example": "examples"
