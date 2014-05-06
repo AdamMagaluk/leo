@@ -4,7 +4,7 @@
   "description": "Command line tool for building Arduino firmware using Node.js and Npm.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/*.js"
   },
   "bin": {
     "leo": "./bin/leo"
@@ -34,7 +34,9 @@
   "directories": {
     "example": "examples"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tape": "^2.12.3"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/AdamMagaluk/leo.git"
