@@ -1,3 +1,6 @@
+var boardscan = require('./lib/boardscan');
+var globaldir = require('./lib/globaldir')();
+
 var boards = {};
 module.exports = boards;
 
@@ -12,6 +15,11 @@ function board(){
     build : {}
   };
 }
+
+//##############################################################
+// require external boards as modules. patches boards.
+if(globaldir) boardscan(globaldir,boards);
+
 
 //##############################################################
 var yun = board();
