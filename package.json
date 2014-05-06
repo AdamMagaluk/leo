@@ -29,13 +29,14 @@
     "traverse": "^0.6.6",
     "rmdir-recursive": "0.0.0",
     "ntr": "~0.0.2",
-    "walkdir": "~0.0.7",
-    "tape": "^2.12.3"
+    "walkdir": "~0.0.7"
   },
   "directories": {
     "example": "examples"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tape": "^2.12.3"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/AdamMagaluk/leo.git"
