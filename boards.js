@@ -1,17 +1,10 @@
+var board = require('leo-board');
+
 var boards = {};
 module.exports = boards;
 
 var usbflags = '';
 
-function board(){
-  return {
-    upload : {},
-    pid : {},
-    vid : {},
-    bootloader : {},
-    build : {}
-  };
-}
 
 //##############################################################
 var yun = board();
