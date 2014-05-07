@@ -1,10 +1,17 @@
 var board = require('leo-board');
+var boardscan = require('./lib/boardscan');
+var globaldir = require('./lib/globaldir')();
 
 var boards = {};
 module.exports = boards;
 
 var usbflags = '';
 
+
+//##############################################################
+// require external boards as modules. patches boards.
+if(globaldir) 
+  boardscan(globaldir,boards);
 
 //##############################################################
 var yun = board();
