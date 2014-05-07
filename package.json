@@ -30,7 +30,8 @@
     "rmdir-recursive": "0.0.0",
     "ntr": "~0.0.2",
     "walkdir": "~0.0.7",
-    "leo-board": "0.0.1"
+    "leo-board": "0.0.1",
+    "cpr": "^0.1.1"
   },
   "directories": {
     "example": "examples"
