@@ -28,19 +28,23 @@ Build hex file
 `$ leo build -b uno`
 
 
+Upload hex file
+
+`$ leo upload -b uno -p /dev/tty.usbmodem1141`
 
 ## Usage
 
 ```
 $ leo -h
-
   Usage: leo [options] [command]
 
   Commands:
 
     boards                 List boards available.
     build [options]        Build firmware for the project in the current directory.
+    new <folder>           Create a new example project
     preproc [options] <sketch> Compile sketch to valid c++ source
+    upload [options]       Upload firmware to device.
     *
 
   Options:
