@@ -18,6 +18,8 @@ var yun = board();
 boards.yun = yun;
 
 yun.name = 'Arduino Yún';
+yun.arch = 'avr';
+
 yun.upload.via_ssh = true;
 
 yun.vid[0] = 0x2341;
@@ -58,6 +60,7 @@ var uno = board();
 boards.uno = uno;
 
 uno.name = 'Arduino Uno';
+uno.arch = 'avr';
 
 uno.vid[0] = 0x2341;
 uno.pid[0] = 0x0043;
