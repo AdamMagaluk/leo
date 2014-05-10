@@ -1,35 +1,3 @@
 #!/usr/bin/env node
-var fs = require('fs');
-var path = require('path');
-var program = require('commander');
-var pkg = require('../package.json');
-
-
-program
-  .version(pkg.version);
-
-function requireCommand(f){
-  var m = require(path.join(__dirname,'../commands',f));
-
-  if(!m.setup || typeof m.setup !== 'function')
-    throw new Error('Command must export setup as a function.')
-
-  m.setup(program);
-
-  return m;
-}
-
-fs.readdirSync(path.join(__dirname,'../commands')).map(requireCommand);
-
-program
-  .command('*')
-  .action(function(env){
-    console.error('command not found');
-    program.help();
-  });
-
-program.parse(process.argv);
-
-if(program.args.length === 0)
-  return program.help();
+require('../cli')
 

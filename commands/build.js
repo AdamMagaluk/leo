@@ -4,9 +4,6 @@ var boards = require('../boards')
   , out  = require('../lib/output')
   , LeoBuild = require('../lib/build');
 
-
-
-
 var Program = null;
 
 module.exports.setup = function(program){
@@ -20,7 +17,6 @@ module.exports.setup = function(program){
 };
 
 function run(env){
-  
   if(!env.board){
     out.error('Board not specified.');
     process.exit(1);
@@ -35,9 +31,14 @@ function run(env){
   // Setup build 
   var env = platform(runtime,board.build,board);
 
+
+
   var b = new LeoBuild(env);
   b.build('.',function(err){
-    console.log(err);
+    if(err)
+      return out.error(err);
+
+    out.log('Successfully built project.');
   });
 
 }

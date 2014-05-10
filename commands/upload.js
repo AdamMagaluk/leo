@@ -23,7 +23,7 @@ function run(env){
     out.error('Board not specified.');
     process.exit(1);
   }
-  
+
   var board = boards[env.board];
   if(board === undefined){
     out.error('Board `'+env.board+'` not found. Use `leo boards` to list available boards.');
@@ -36,7 +36,10 @@ function run(env){
   var b = new LeoUpload(setup);
 
   b.serialUpload(env.port,'.',function(err){
-    console.log(err);
+    if(err)
+      return out.error(err)
+
+    out.log('Successfully uploaded hex file.');
   });
 
 }
