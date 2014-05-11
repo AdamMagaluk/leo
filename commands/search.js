@@ -17,7 +17,7 @@ module.exports.setup = function(program){
 function run(env){
   var terms = Array.prototype.slice.call(arguments).slice(0,-1);
 
-  var opts = {cols : 99};
+  var opts = {};
   var cols = opts.cols || process.stdout.columns || Infinity;
   
   var args = [ 'search', '-s', '/\\.(ino)\\b/' ];
