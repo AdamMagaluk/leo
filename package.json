@@ -32,7 +32,9 @@
     "walkdir": "~0.0.7",
     "leo-board": "0.0.1",
     "cpr": "^0.1.1",
-    "serialport": "^1.4.0"
+    "serialport": "^1.4.0",
+    "through": "^2.3.4",
+    "split": "^0.3.0"
   },
   "directories": {
     "example": "examples"

@@ -9,7 +9,7 @@ var Program = null;
 module.exports.setup = function(program){
   program
     .command('console')
-    .description('Open a serial console to the board for debuging.')
+    .description('Open a serial console to the board for debugging.')
     .option('-p, --port [port]', 'Serial port to use.')
     .option('-b, --baud [baud]', 'Baud rate. Defaults to 9600', 9600)
     .action(run);
