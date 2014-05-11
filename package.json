@@ -1,6 +1,6 @@
 {
   "name": "leo",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Command line tool for building Arduino firmware using Node.js and Npm.",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,8 @@
     "ntr": "~0.0.2",
     "walkdir": "~0.0.7",
     "leo-board": "0.0.1",
-    "cpr": "^0.1.1"
+    "cpr": "^0.1.1",
+    "serialport": "^1.4.0"
   },
   "directories": {
     "example": "examples"
