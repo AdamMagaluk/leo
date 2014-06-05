@@ -1,7 +1,6 @@
 var SerialPort = require("serialport").SerialPort
   , boards = require('../boards')
-  , runtime = require('../runtime')
-  , platform = require('../platform')
+  , runtime = require('../lib/config')
   , out  = require('../lib/output');
 
 var Program = null;

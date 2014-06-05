@@ -1,6 +1,5 @@
 var boards = require('../boards')
-  , runtime = require('../runtime')
-  , platform = require('../platform')
+  , config = require('../lib/config')
   , out  = require('../lib/output')
   , LeoBuild = require('../lib/build');
 
@@ -29,9 +28,7 @@ function run(env){
   }
 
   // Setup build 
-  var env = platform(runtime,board.build,board);
-
-
+  var env = board.platform(config, board.build, board);
 
   var b = new LeoBuild(env);
   b.build('.',function(err){
