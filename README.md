@@ -58,6 +58,7 @@ $ leo build -b uno
 
 You can use the `leo search` command to search npm:
 
+
 ```
 $ leo search arduino
 NAME     DESCRIPTION                                                 AUTHOR       DATE       VERSIO
