@@ -1,6 +1,6 @@
 {
   "name": "leo",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Command line tool for building Arduino firmware using Node.js and Npm.",
   "main": "index.js",
   "scripts": {
