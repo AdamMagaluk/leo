@@ -71,13 +71,13 @@ wifi.ino Libary for the Arduino WiFi shield. Packaged for the leo…   =adammaga
 
 ```
 $ leo -h
-
   Usage: leo [options] [command]
 
   Commands:
 
     boards                 List boards available.
     build [options]        Build firmware for the project in the current directory.
+    config [options]       Modify leo configuration
     console [options]      Open a serial console to the board for debugging.
     new <folder>           Create a new example project
     preproc [options] <sketch> Compile sketch to valid c++ source

@@ -23,11 +23,8 @@ function run(){
   var cmd = args[0];
 
   if(!commands[cmd]){
-    out.error('Command not found.');
-    process.exit(1);
+    cmd.help();
   }
-  
-  
 
   commands[cmd].apply(null,args.slice(1,-1));
 
