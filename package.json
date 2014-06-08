@@ -24,28 +24,27 @@
     "commander": "~2.1.0",
     "prompt": "~0.2.12",
     "async": "~0.2.9",
-    "handlebars": "^1.3.0",
-    "colors": "^0.6.2",
-    "traverse": "^0.6.6",
+    "colors": "~0.6.2",
     "rmdir-recursive": "0.0.0",
     "ntr": "~0.0.2",
     "walkdir": "~0.0.7",
     "leo-board": "0.0.1",
-    "cpr": "^0.1.1",
-    "serialport": "^1.4.0",
-    "through": "^2.3.4",
-    "split": "^0.3.0",
-    "rc": "^0.3.5",
-    "ini": "^1.1.0",
-    "deepcopy": "^0.3.3",
-    "dobj": "^1.4.4",
-    "leo-board-arduino": "*"
+    "cpr": "~0.1.1",
+    "serialport": "~1.4.0",
+    "through": "~2.3.4",
+    "split": "~0.3.0",
+    "rc": "~0.3.5",
+    "ini": "~1.1.0",
+    "deepcopy": "~0.3.3",
+    "dobj": "~1.4.4",
+    "leo-board-arduino": "*",
+    "traverse": "~0.6.6"
   },
   "directories": {
     "example": "examples"
   },
   "devDependencies": {
-    "tape": "^2.12.3"
+    "tape": "~2.12.3"
   },
   "repository": {
     "type": "git",
