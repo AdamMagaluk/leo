@@ -38,7 +38,8 @@
     "rc": "^0.3.5",
     "ini": "^1.1.0",
     "deepcopy": "^0.3.3",
-    "dobj": "^1.4.4"
+    "dobj": "^1.4.4",
+    "leo-board-arduino": "*"
   },
   "directories": {
     "example": "examples"
