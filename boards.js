@@ -14,8 +14,7 @@ if(globaldir)
   boardscan(globaldir, boards);
 
 // if arduino has not already been added from globaldir
-if(!boards.yun && boards.uno){
-  console.log('adding...')
+if(!boards.yun && !boards.uno){
   Object.keys(arduinoBoards).forEach(function(name){
     boards[name] = arduinoBoards[name];
   });
