@@ -30,7 +30,7 @@ function run(env){
   }
 
   // Setup build 
-  var setup = platform(runtime, board.build, board);
+  var setup = board.platform(runtime, board.build, board);
 
   var b = new LeoUpload(setup);
 
