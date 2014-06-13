@@ -19,7 +19,12 @@ module.exports.setup = function(program){
 function run(env){
   
   if(!env.board){
-    out.error('Board not specified.');
+    out.error('Board not specified. -b');
+    process.exit(1);
+  }
+
+  if(!env.port) {
+    out.error('serial port not specified. -p ');
     process.exit(1);
   }
 
