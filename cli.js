@@ -22,7 +22,6 @@ function requireCommand(f){
 fs.readdirSync(path.join(__dirname,'./commands')).map(requireCommand);
 
 function increaseVerbosity(v,total){
-  console.log('increaseVerbosity')
   out.verbose(v);
   return v;
 }
@@ -31,7 +30,6 @@ program
   .option('-v, --verbose [value]', 'Verbose level', increaseVerbosity, 1)
   .command('*')
   .action(function(env){
-    console.log(env.verbose)
     out.error('Command not found');
     program.help();
   });

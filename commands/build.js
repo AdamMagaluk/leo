@@ -16,6 +16,12 @@ module.exports.setup = function(program){
 };
 
 function run(env){
+
+  if(config.ide.path === ''){
+    out.error('Unable to find Arduino IDE path. You can set it manually by running `leo config set ide.path \'/some/path\'`');
+    process.exit(1);
+  }
+
   if(!env.board){
     out.error('Board not specified.');
     process.exit(1);
