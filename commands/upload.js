@@ -1,5 +1,5 @@
 var boards = require('../boards')
-  , runtime = require('../lib/config')
+  , config = require('../lib/config')
   , out  = require('../lib/output')
   , LeoUpload = require('../lib/upload');
 
@@ -40,7 +40,7 @@ function run(env){
   }
 
   // Setup build 
-  var setup = board.platform(runtime, board.build, board);
+  var setup = board.platform(config, board.build, board);
 
   var b = new LeoUpload(setup);
 
