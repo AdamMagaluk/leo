@@ -1,6 +1,6 @@
 {
   "name": "leo",
-  "version": "0.0.24",
+  "version": "0.1.1",
   "description": "Command line tool for building Arduino firmware using Node.js and Npm.",
   "main": "index.js",
   "scripts": {
@@ -21,24 +21,25 @@
   "author": "Adam Magaluk <AdamMagaluk@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "~2.1.0",
-    "prompt": "~0.2.12",
     "async": "~0.2.9",
     "colors": "~0.6.2",
-    "rmdir-recursive": "0.0.0",
-    "ntr": "~0.0.2",
-    "walkdir": "~0.0.7",
-    "leo-board": "0.0.1",
+    "commander": "~2.1.0",
     "cpr": "~0.1.1",
-    "serialport": "~1.4.0",
-    "through": "~2.3.4",
-    "split": "~0.3.0",
-    "rc": "~0.3.5",
-    "ini": "~1.1.0",
     "deepcopy": "~0.3.3",
     "dobj": "~1.4.4",
+    "ini": "~1.1.0",
+    "leo-board": "0.0.1",
     "leo-board-arduino": "*",
-    "traverse": "~0.6.6"
+    "ntr": "~0.0.2",
+    "pad": "0.0.8",
+    "prompt": "~0.2.12",
+    "rc": "~0.3.5",
+    "rmdir-recursive": "0.0.0",
+    "serialport": "~1.4.0",
+    "split": "~0.3.0",
+    "through": "~2.3.4",
+    "traverse": "~0.6.6",
+    "walkdir": "~0.0.7"
   },
   "directories": {
     "example": "examples"
