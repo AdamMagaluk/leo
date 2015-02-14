@@ -11,6 +11,10 @@ Inspiration taken from the [Ino][ino] project.
 `$ npm install -g leo`
 
 
+## Intro
+
+![Leo Intro Gif](screencasts/intro.gif)
+
 ## Basic Usage
 
 Create a new example Blink project
